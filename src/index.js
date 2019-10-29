@@ -98,15 +98,19 @@ export default class Lottie extends React.Component {
   }
 
   registerEvents(eventListeners) {
-    eventListeners.forEach((eventListener) => {
-      this.anim.addEventListener(eventListener.eventName, eventListener.callback);
-    });
+    if (eventListeners && eventListeners.length) {
+      eventListeners.forEach((eventListener) => {
+        this.anim.addEventListener(eventListener.eventName, eventListener.callback);
+      });
+    }
   }
 
   deRegisterEvents(eventListeners) {
-    eventListeners.forEach((eventListener) => {
-      this.anim.removeEventListener(eventListener.eventName, eventListener.callback);
-    });
+    if (eventListeners && eventListeners.length) {
+      eventListeners.forEach((eventListener) => {
+        this.anim.removeEventListener(eventListener.eventName, eventListener.callback);
+      });
+    }
   }
 
   handleClickToPause = () => {
